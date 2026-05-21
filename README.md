@@ -16,6 +16,31 @@ To implement univariate Linear Regression to fit a straight line using least squ
 ## Program
 ```
 
+import os
+os.environ["OPENBLAS_NUM_THREADS"]="1"
+import numpy as np 
+import matplotlib.pyplot as plt
+x = np.array([0,1,2,3,4,5,6,7,8,9])
+y = np.array([1,3,2,5,7,8,8,9,10,12])
+plt.scatter(x,y)
+plt.show()
+xmean = np.mean(x)
+ymean = np.mean(y)
+num=0
+den=0
+for i in range(len(x)):
+    num+=(x[i]-xmean)*(y[i]-ymean)
+    den+=(x[i]-xmean)**2
+m = num/den
+b = ymean - m*xmean
+print(m,b)
+ypred = m*x+b
+print(ypred)
+
+plt.scatter(x,y,color='Red')
+plt.plot(x,ypred,color='Blue')
+plt.show()
+
 
 
 
@@ -23,10 +48,9 @@ To implement univariate Linear Regression to fit a straight line using least squ
 
 ```
 ## Output
-</br>
-</br>
-</br>
-</br>
+
+<img width="1080" height="636" alt="image" src="https://github.com/user-attachments/assets/0edc9773-fe23-4001-b972-a9017bd0b441" />
+<img width="864" height="538" alt="image" src="https://github.com/user-attachments/assets/9d13cb02-77dd-4353-91ee-bfad25136941" />
 
 ## Result
 Thus the univariate Linear Regression was implemented to fit a straight line using least squares.
